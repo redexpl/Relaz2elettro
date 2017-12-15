@@ -8,7 +8,7 @@
 \begin{document}
 
 \section{Introduzione}
-In questa esercitazione sperimentale di sistemi elettronici abbiamo misurato il comportamento di due amplificatori reali, uno non invertente e uno invertente.\\Abbiamo quindi poi ... i risultati ottenuti dalle misure con quelli ottenuti dai calcoli teorici, osservando i limiti che le semplificazioni teoriche inducono.
+In questa esercitazione sperimentale di sistemi elettronici abbiamo misurato il comportamento di due amplificatori reali, uno non invertente e uno invertente.\\Abbiamo quindi poi confrontare i risultati ottenuti dalle misure con quelli ottenuti dai calcoli teorici, osservando i limiti che le semplificazioni teoriche inducono.
 
 \section{Strumenti}
 Per effettuare questa esercitazione abbiamo dovuto utilizzare quindi:
@@ -29,24 +29,153 @@ Abbiamo così ottenuto una differenza di potenziale pari a +24V tra i cavi rosso
 Il generatore di segnali è stato collegato attraverso un connettore coassiale sia all'uscita 50ohm (del generatore di segnali) sia all'ingresso J1 della scheda "A2".
 
 \subsection{Oscilloscopio digitale}
-\subsubsection{Canale 1} Il canale 1 dell'oscilloscopio è stato collegato attraverso un connettore da coassiale (ingresso verso oscillosopio) a morsetti rosso e nero, collegati a J2 e J7 (della scheda "A2") rispettivamente.
-\subsubsection{Canale 2} Il canale 2 dell'oscilloscopio è stato collegato sempre attraverso un connettore da coassiale (ingresso verso oscillosopio) a morsetti rosso e nero, collegati a J8 e JNON SO rispettivamente.
+\subsubsection{Canale 1} Il canale 1 dell'oscilloscopio è stato collegato attraverso un connettore da coassiale (ingresso verso oscillosopio) a morsetti rosso e nero, collegati a J4 e J5 (della scheda "A2") rispettivamente.
+\subsubsection{Canale 2} Il canale 2 dell'oscilloscopio è stato collegato sempre attraverso un connettore da coassiale (ingresso verso oscillosopio) a morsetti rosso e nero, collegati a J6 e J7 rispettivamente.
 
-\section{Amplificatore non invertente}
+\section{Amplificatore non invertente senza elementi reattivi}
 Per la prima parte dell'esercitazione siamo andati ad analizzare l'amplificatore non invertente presente sulla scheda.
-\subsection{Calcoli Teorici}
+\subsection{Calcoli teorici}
+...
 \subsection{Predisposizione scheda}
 Per poter utilizzare l'amplificatore non invertente bisognava predisporre la scheda andando a commutare degli \textbf{interruttori} presenti su di essa, nello specifico abbiamo settato gli interruttori nel seguente modo:
 \begin{itemize}
-	\item \textbf{S1}: Posizione 1\\ \textit{Mettendo S1 in \textbf{posizione 1} si collega l'ingresso (l'uscita del generatore di segnale) all'ingresso dell'\textbf{amplificatore non invertente}.\\Viceversa se posto in \textbf{posizione 2} si collegherebbe J1 all'ingresso dell'\textbf{amplificatore invertente}.}
-	\item \textbf{S2}: ...
-	\item \textbf{S3}: ...
-	\item \textbf{S4}: ...
-	\item \textbf{S5}: ...
-	\item \textbf{S6}: ...
-	\item \textbf{S7}: ...
-	\item \textbf{S8}: ...
-	\item \textbf{S9}: ...
+	\item \textbf{S1}: Posizione 2\\ \textit{Mettendo S1 in \textbf{posizione 2} si collega l'ingresso (l'uscita del generatore di segnale) all'ingresso dell'\textbf{amplificatore non invertente}.\\Viceversa se posto in \textbf{posizione 1} si collegherebbe J1 all'ingresso dell'\textbf{amplificatore invertente}.}
+	\item \textbf{S2}: Posizione 2\\ \textit{Mettendo S2 in \textbf{posizione 2} si collega l'uscita dell'\textbf{amplificatore non invertente} al "circuito di uscita", viceversa se si mette S2 in \textbf{posizione 1} si collega l'uscita dell'\textbf{amplificatore invrtente} al circuito di uscita}
+	\item \textbf{S3}: Posizione 2\\ \textit{Commutando S3 in \textbf{posizione 1} insieme a S4 in posizione 1 si va ad inserire il condensatore \textbf{C10} in "serie alla resistenza di ingresso" (e in parallelo a C5) dell'amplificatore}
+	\item \textbf{S4}: Posizione 2\\ \textit{Commutando S4 in \textbf{posizione 1} si andrebbe a inserire \textbf{C5} in "serie alla resistenza di ingresso" (e in parallelo a C10 se S3 = 1)}
+	\item \textbf{S5}: Posizione 2\\\textit{Mettendo S5 in \textbf{posizione 1} si va ad inserire la resistenza \textbf{R9} in serie al circuito di ingresso}
+	\item \textbf{S6}: Posizione 1\\ \textit{Mettendo S6 in \textbf{posizione 2} sia ndrebbe ad inserire \textbf{R10} in serie al circuito di uscita}
+	\item \textbf{S7}: Posizione 1\\ \textit{Mettendo S7 in \textbf{posizione 2} sia ndrebbe ad inserire \textbf{R11} in serie al circuito di uscita}
+	\item \textbf{S8}: Posizione 1\\ \textit{Mettendo S8 in \textbf{posizione 2} sia ndrebbe ad inserire \textbf{C6} in serie al circuito di uscita}
+	\item \textbf{S9}: Posizione 1\\ \textit{Mettendo S9 in \textbf{posizione 2} sia ndrebbe ad inserire \textbf{C9} in serie al circuito di uscita}
 \end{itemize}
+
+\subsection{Misura guadagno}
+\subsubsection{Impostazione segnale generatore segnale}
+Per effettuare la misura di guadagno è richiesto di impostare il generatore di segnale in modo che generi un \textbf{segnale} di uscita \textbf{sinusoidale} di \textbf{frequenza} pari a \textbf{800Hz} e \textbf{valore di picco-picco} di \textbf{1V}.
+
+\subsubsection{Segnale misurato}
+Passiamo ora all'analisi dei valori misurati attraverso l'oscilloscopio.\\Dall'analisi dell'uscita visualizzata sul display dell'oscilloscopio possiamo calcolare una \textbf{tensione di ingresso} pari a \large $V_s = (980 \pm 39)$mV \normalsize (in quanto possiamo leggere il risultato come 4.9 divisioni con una scala di 200mV a divisione).\\
+Per quanto riguarda la \textbf{tensione di uscita} invece leggiamo un valore di \large $V_u = (8.40 \pm 0.36)$V \normalsize (ottenuto da 4.2 divisione con una scala di 2.00V per divisione).
+\subsubsection{Calcolo guadagno}
+Ottemiamo quindi un \textbf{guadagno} pari a:\\ \large $A_v = \frac{V_s}{V_u} = (8.57 \pm 0.71)$ \normalsize \\Che, espresso \textbf{in decibel} diventa:\\ \large $ |A_v|_{dB} = (18.7 \pm 1.7)$dB \normalsize
+
+\subsection{Misura della resistenza di ingresso}
+\subsubsection{Metodo di misura per le resistenze}
+Per poter effettuare le misure di resistenza si è scelto di sfruttare l'inserimento di una \textbf{resistenza in serie} al circuito di ingresso, R9 ("inseribile" tramite l'interruttore S5 ???).\\Calcolando quindi la tensione di uscita senza resistenza R9 in serie si ottiene:\\
+\large $V_{u} = A_{v} * V_{in}$ \normalsize \\ Invece se si inserisce R9 in serie commutando la posizione di S5???? si ottiene:\\
+\large $ V_{u}^{'} = A_{v} * V_{in} * \frac{R_{in}}{R_{in} + R_9} $ \normalsize \\ Facendo il rapporto \large $\frac{V_{u}^{'}}{{V_u}}$ \normalsize si ottiene quindi: \\ \large $R_{in} = \frac{R_9 * V_{u}^{'}}{V_u - V_{u}^{'}} $ \normalsize
+\subsubsection{Calcolo resistenza ingresso}
+I valori numerici misurati sono i seguenti:
+\begin{itemize}
+	\item \large $R_{9} = 10k\Omega \pm 1\%$
+	\item \large $V_{u} = (8.40 \pm 0.36)V$
+	\item \large $V_{u}^{'} = (4.40 \pm 0.18)V$
+\end{itemize}
+Inserendoli nella formula precedente otteniamo quindi un valore di: \\ \large $R_{in} = (11.0 \pm 2.0)k\Omega$
+
+\subsection{Misura della resistenza di uscita}
+\subsubsection{Metodo di misura per le resistenze}
+Per poter effettuare le misure di resistenza si è scelto di sfruttare l'inserimento di una \textbf{resistenza in serie} al circuito di uscita, R10 ("inseribile" tramite l'interruttore S6 ???).\\Calcolando quindi la tensione di uscita senza resistenza R10 in serie si ottiene:\\
+\large $V_{u} = A_{v} * V_{in}$ \normalsize \\ Invece se si inserisce R10 in serie commutando la posizione di S6???? si ottiene:\\
+\large $ V_{u}^{'} = A_{v} * V_{in} * \frac{R_{10}}{R_{10} + R_u} $ \normalsize \\ Facendo il rapporto \large $\frac{V_{u}^{'}}{{V_u}}$ \normalsize si ottiene quindi: \\ \large $R_{in} = R_{10} * (\frac{V_{u}-V_{u}^{'}}{V_{u}^{'}}) $ \normalsize
+\subsubsection{Calcolo resistenza uscita}
+I valori numerici misurati sono i seguenti:
+\begin{itemize}
+	\item \large $R_{10} = 1k\Omega \pm 5\%$
+	\item \large $V_{u} = (8.40 \pm 0.36)V$
+	\item \large $V_{u}^{'} = (4.20 \pm 0.18)V$
+\end{itemize}
+Inserendoli nella formula precedente otteniamo quindi un valore di: \\ \large $R_{u} = (1.0 \pm 0.23)k\Omega$
+
+\subsection{Confronto valori teorici e valori ottenuti dalle misure}
+...
+
+\section{Amplificatore non invertente con elementi reattivi}
+\subsection{Calcoli teorici}
+...
+\subsection{Predisposizione scheda}
+Per effettuare queste nuove misure è necessario ricofigurare la posizione degli interruttori sulla scheda secondo la seguente configurazione:
+\begin{itemize}
+	\item S1: Posizione 2
+	\item S2: Posizione 2
+	\item S3: Posizione 2
+	\item S4: Posizione 2
+	\item S5: Posizione 2
+	\item S6: Posizione 2
+	\item S7: Posizione 2
+	\item S8: Posizione 2
+	\item S9: Posizione 2
+\end{itemize}
+
+\subsection{Misure in frequenza}
+\subsubsection{Tabella delle misure}
+\large \begin{tabbing}
+100kHz \= $(1.00 \pm 0.00) * 10^{-nn} rad$ \= $(1.00 \pm 0.00) * 10^{-nn} V$ \= $(1.00 \pm 0.00) * 10^{-nn} V$ \kill
+ $f$ \> $\delta\phi$ \> $V_s$ \> $V_{u}$ \\
+$300Hz$ \> $(1.21 \pm 0.06)*10^{-3} rad$ \> $(980 \pm 39) mV$ \> $(2.20 \pm 0.09) V$ \\
+$1kHz$ \> $(7.54 \pm 0.46)*10^{-4} rad$ \> $(980 \pm 39) mV$ \> $(5.70 \pm 0.21) V$ \\
+$3kHz$ \> $(1.70 \pm 0.22)*10^{-4} rad$ \> $(980 \pm 39) mV$ \> $(7.80 \pm 0.25) V$ \\
+$10kHz$ \> $(5.03 \pm 0.22)*10^{-1} rad$ \> $(980 \pm 39) mV$ \> $(7.10 \pm 0.23) V$ \\
+$30kHz$ \> $(1.13 \pm 0.06) rad$ \> $(980 \pm 39) mV$ \> $(4.00 \pm 0.18) V$ \\
+$100kHz$ \> $(1.89 \pm 0.10) rad$ \> $(200 \pm 8.8) mV$ \> $(280 \pm 10) mV$ \\
+$300kHz$ \> $(3.77 \pm 0.17) rad$ \> $(200 \pm 8.8) mV$ \> $(72.0 \pm 3.4) mV$ \\
+$1MHz$ \> $(3.14 \pm 0.19) rad$ \> $(200 \pm 8.8) mV$ \> $(9.00 \pm 0.67) mV$ \\
+\end{tabbing}
+\subsubsection{Note}
+Abbiamo riscontrato un elevato livello di rumore con le misure prese ad una frequenza di 1MHz, già a 300KHz si riscontravano alcuni disturbi.
+\subsection{Confronto valori teorici e valori ottenuti dalle misure}
+...
+
+\section{Amplificatore invertente}
+\subsection{Calcoli teorici}
+...
+\subsection{Predisposizione scheda}
+Per effettuare queste nuove misure è necessario ricofigurare la posizione degli interruttori sulla scheda secondo la seguente configurazione:
+\begin{itemize}
+	\item S1: Posizione 2
+	\item S2: Posizione 2
+	\item S3: Posizione 2
+	\item S4: Posizione 2
+	\item S5: Posizione 2
+	\item S6: Posizione 2
+	\item S7: Posizione 2
+	\item S8: Posizione 2
+	\item S9: Posizione 2
+\end{itemize}
+\subsection{Misura guadagno}
+\subsubsection{Impostazione segnale generatore segnale}
+Per effettuare la misura di guadagno è richiesto di impostare il generatore di segnale in modo che generi un \textbf{segnale} di uscita \textbf{sinusoidale} di \textbf{frequenza} pari a \textbf{1KHz} e \textbf{valore di picco-picco} di \textbf{1V}.
+
+\subsubsection{Segnale misurato}
+Passiamo ora all'analisi dei valori misurati attraverso l'oscilloscopio.\\Dall'analisi dell'uscita visualizzata sul display dell'oscilloscopio possiamo calcolare una \textbf{tensione di ingresso} pari a \large $V_s = (980 \pm 39)$mV \normalsize (in quanto possiamo leggere il risultato come 4.9 divisioni con una scala di 200mV a divisione).\\
+Per quanto riguarda la \textbf{tensione di uscita} invece leggiamo un valore di \large $V_u = (10.0 \pm 0.39)$V \normalsize (ottenuto da 5 divisione con una scala di 2.00V per divisione).
+\subsubsection{Calcolo guadagno}
+Ottemiamo quindi un \textbf{guadagno} pari a:\\ \large $A_v = \frac{V_s}{V_u} = (10.20 \pm 0.80)$ \normalsize \\Che, espresso \textbf{in decibel} diventa:\\ \large $ |A_v|_{dB} = (20.2 \pm 1.6)$dB \normalsize
+\subsection{Misura resistenza di ingresso}
+Per la misura della resistenza di ingresso procediamo come per l'amplificatore non invertente.
+\subsubsection{Misure ottenute}
+I valori numerici misurati sono i seguenti:
+\begin{itemize}
+	\item \large $R_{9} = 10k\Omega \pm 1\%$
+	\item \large $V_{u} = (10.0 \pm 0.39)V$
+	\item \large $V_{u}^{'} = (6.00 \pm 0.31)V$
+\end{itemize}
+Inserendoli nella formula precedente otteniamo quindi un valore di: \\ \large $R_{in} = (15.0 \pm 3.5)k\Omega$
+\subsection{Misura resistenza di uscita}
+Anche per la misura della resistenza di uscita procediamo come per l'amplificatore non invertente.
+\subsubsection{Misure ottenute}
+I valori numerici misurati sono i seguenti:
+\begin{itemize}
+	\item \large $R_{10} = 1k\Omega \pm 5\%$
+	\item \large $V_{u} = (10.0 \pm 0.39)V$
+	\item \large $V_{u}^{'} = (10.0 \pm 0.39)V$
+\end{itemize}
+\subsubsection{Note}
+Si denota vedendo le misure che l'inserimento della resistenza $R_{10}$ è completamente ininfluente per quanto riguarda la tensione di uscita.\\Questo implica che il valore di $R_{10}$ sia completamente trascurabile rispetto a $R_{u}$.
+\subsection{Confronto valori teorici e valori ottenuti dalle misure}
+
+\section{Conclusioni}
+...
 
 \end{document}

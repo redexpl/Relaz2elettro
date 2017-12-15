@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016/Debian) (preloaded format=pdflatex 2017.12.14)  15 DEC 2017 11:36
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016/Debian) (preloaded format=pdflatex 2017.12.14)  15 DEC 2017 18:59
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -466,36 +466,59 @@ Overfull \hbox (2.11058pt too wide) in paragraph at lines 23--27
 [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
-Overfull \hbox (2.7506pt too wide) in paragraph at lines 39--40
+Overfull \hbox (2.7506pt too wide) in paragraph at lines 40--41
 \OT1/cmr/m/n/10 Per poter uti-liz-zare l'amplificatore non in-ver-tente bisog-n
 ava pre-dis-porre la scheda
  []
 
 
-Overfull \hbox (43.24985pt too wide) in paragraph at lines 41--42
-\OT1/cmr/m/it/10 Viceversa se posto in \OT1/cmr/bx/it/10 po-sizione 2 \OT1/cmr/
+Overfull \hbox (43.24985pt too wide) in paragraph at lines 42--43
+\OT1/cmr/m/it/10 Viceversa se posto in \OT1/cmr/bx/it/10 po-sizione 1 \OT1/cmr/
 m/it/10 si col-legherebbe J1 all'ingresso dell'\OT1/cmr/bx/it/10 amplificatore
  []
 
-[2] (./Relazione.aux) ) 
+[2]
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <12> on input line 58.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <8> on input line 58.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <6> on input line 58.
+ [3]
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 72.
+ [4]
+Overfull \hbox (8.11623pt too wide) in paragraph at lines 94--94
+[]\OT1/cmr/bx/n/14.4 Amplificatore non in-ver-tente con el-e-menti reat-
+ []
+
+[5] [6] [7] [8] (./Relazione.aux) ) 
 Here is how much of TeX's memory you used:
- 1796 strings out of 494902
- 23887 string characters out of 6179890
- 80605 words of memory out of 5000000
- 5096 multiletter control sequences out of 15000+600000
- 5863 words of font info for 21 fonts, out of 8000000 for 9000
+ 1816 strings out of 494902
+ 24098 string characters out of 6179890
+ 81605 words of memory out of 5000000
+ 5109 multiletter control sequences out of 15000+600000
+ 8301 words of font info for 29 fonts, out of 8000000 for 9000
  36 hyphenation exceptions out of 8191
- 39i,4n,25p,446b,143s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/share/texlive/texmf-dist/fonts/type1/public/amsfon
-ts/cm/cmbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/
-cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbxti
-10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb>
-</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/
-share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb>
-Output written on Relazione.pdf (2 pages, 81170 bytes).
+ 39i,4n,25p,446b,199s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/share/texlive/texmf-dist/fonts/type1/p
+ublic/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/
+amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfon
+ts/cm/cmbxti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/c
+m/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi
+6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb><
+/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/sh
+are/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/tex
+live/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texlive/tex
+mf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/
+fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/
+type1/public/amsfonts/cm/cmsy6.pfb></usr/share/texlive/texmf-dist/fonts/type1/p
+ublic/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/a
+msfonts/cm/cmti10.pfb>
+Output written on Relazione.pdf (8 pages, 179568 bytes).
 PDF statistics:
- 35 PDF objects out of 1000 (max. 8388607)
- 24 compressed objects within 1 object stream
+ 87 PDF objects out of 1000 (max. 8388607)
+ 62 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
