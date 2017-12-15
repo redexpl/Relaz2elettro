@@ -1,0 +1,52 @@
+\documentclass{article}
+\usepackage{graphicx}
+\usepackage[utf8]{inputenc}
+\author{Alessandro Rosso, Elia Migliore, Franco Ruggeri, Marco Riggio}
+\title{Relazione Seconda Esercitazione Sistemi Elettronici}
+\date{15 December 2017}
+
+\begin{document}
+
+\section{Introduzione}
+In questa esercitazione sperimentale di sistemi elettronici abbiamo misurato il comportamento di due amplificatori reali, uno non invertente e uno invertente.\\Abbiamo quindi poi ... i risultati ottenuti dalle misure con quelli ottenuti dai calcoli teorici, osservando i limiti che le semplificazioni teoriche inducono.
+
+\section{Strumenti}
+Per effettuare questa esercitazione abbiamo dovuto utilizzare quindi:
+\begin{itemize}
+	\item \textbf{Generatore da banco}
+	\item \textbf{Generatore di segnali}
+    \item \textbf{Oscilloscopio digitale}
+	\item \textbf{Scheda con amplificatori "A2"}
+\end{itemize}
+
+\subsection{Generatore banco}
+Il generatore da banco è stato configurato in modo che erogasse 12V sia sull'uscita 1 che sull'uscita 2.\\
+Si è quindi collegato un cavo con entrambi i connettori a banana in modo che cortocircuitasse il GND della prima uscita e il +12V della seconda uscita, così da poterlo utilizzare come \textbf{generatore duale}.\\ Su questo cavo banana-banana si è poi anche inserito il connettore a banana verde ( potenziale a 0V ) che usciva dal connettore collegato alla porta J8 presente sulla scheda con gli amplificatori.\\
+I connettori a banana rosso e nero che uscivano dal connettore connesso a J8 sono poi stati collegati alle uscite 1 - +12V e 2 - GND del generatore da banco, rispettivamente.\\
+Abbiamo così ottenuto una differenza di potenziale pari a +24V tra i cavi rosso e nero del connettore di alimentazione della scheda "A2", +12V tra il rosso e il verde e -12V tra il verde e il nero.
+
+\subsection{Generatore di segnali}
+Il generatore di segnali è stato collegato attraverso un connettore coassiale sia all'uscita 50ohm (del generatore di segnali) sia all'ingresso J1 della scheda "A2".
+
+\subsection{Oscilloscopio digitale}
+\subsubsection{Canale 1} Il canale 1 dell'oscilloscopio è stato collegato attraverso un connettore da coassiale (ingresso verso oscillosopio) a morsetti rosso e nero, collegati a J2 e J7 (della scheda "A2") rispettivamente.
+\subsubsection{Canale 2} Il canale 2 dell'oscilloscopio è stato collegato sempre attraverso un connettore da coassiale (ingresso verso oscillosopio) a morsetti rosso e nero, collegati a J8 e JNON SO rispettivamente.
+
+\section{Amplificatore non invertente}
+Per la prima parte dell'esercitazione siamo andati ad analizzare l'amplificatore non invertente presente sulla scheda.
+\subsection{Calcoli Teorici}
+\subsection{Predisposizione scheda}
+Per poter utilizzare l'amplificatore non invertente bisognava predisporre la scheda andando a commutare degli \textbf{interruttori} presenti su di essa, nello specifico abbiamo settato gli interruttori nel seguente modo:
+\begin{itemize}
+	\item \textbf{S1}: Posizione 1\\ \textit{Mettendo S1 in \textbf{posizione 1} si collega l'ingresso (l'uscita del generatore di segnale) all'ingresso dell'\textbf{amplificatore non invertente}.\\Viceversa se posto in \textbf{posizione 2} si collegherebbe J1 all'ingresso dell'\textbf{amplificatore invertente}.}
+	\item \textbf{S2}: ...
+	\item \textbf{S3}: ...
+	\item \textbf{S4}: ...
+	\item \textbf{S5}: ...
+	\item \textbf{S6}: ...
+	\item \textbf{S7}: ...
+	\item \textbf{S8}: ...
+	\item \textbf{S9}: ...
+\end{itemize}
+
+\end{document}
