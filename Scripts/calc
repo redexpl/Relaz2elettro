@@ -1,0 +1,15 @@
+(A Cin Rin) s/((1+sC6Ru)(1+sCinRin))
+(A Cin Rin) s/((1+j(2)(pi)fC6Ru)(1+j(2)(pi)CinRin))
+(j(2)(pi)(f))/((1+j(2)(pi)(f)(C6)(Ru))(1+j(2)(pi)(f)(Cin)(Rin)))
+(j(2)(pi)(f))/((1+j(2)(pi)(f)(C6)(Ru))(1+j(2)(pi)(f)(Cin)(Rin)))((1+j(2)(pi)(f)(C6)(Ru))/(1+j(2)(pi)(f)(C6)(Ru)))
+(j(2)(pi)(f))/((1+(4)(pi)^2(f)^2(C6)^2(Ru)^2)(1+j(2)(pi)(f)(Cin)(Rin))) (1+j(2)(pi)(f)(C6)(Ru))
+--- fp = 1/((2)(pi)(C6)(Ru)), mfp = sqrt(1+(f/fp)^2), mfp^2 = 1+((f)^2(2)^2(pi)^2(C6)^2(Ru)^2)
+(j(2)(pi)(f))/(mfp^2)(1+j(2)(pi)(f)(Cin)(Rin))) (1+(j)(f/fp))
+--- fp2 = 1/((2)(pi)(Cin)(Rin)), mfp2 = sqrt(1+(f/fp2)^2), mfp2^2 = 1+((f)^2(2)^2(pi)^2(Cin)^2(Rin)^2)
+(j(2)(pi)(f))/(mfp^2)(mfp2^2) (1-(j)(f/fp))(1-(j)(f/fp2))
+Numeratore:	(j(2)(pi)(f))(1-((f^2)/((fp)(fp2)))-(j(f)((fp2+fp)/((fp)(fp2)))))
+		j(2 pi f - ((2 pi f^3)/(fp fp2))) + 2 pi f^2 ((fp2+fp1)/(fp fp2))
+
+Fase:
+	atan( (2 pi f (1 - (f^2/(fp fp2)))) / (2 pi f f((fp2 + fp)/(fp fp2)))
+	atan( (1 - (f^2/(fp fp2)) / (f (fp2 + fp)/(fp2 fp)))

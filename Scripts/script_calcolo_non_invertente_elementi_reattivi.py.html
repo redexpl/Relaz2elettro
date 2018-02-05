@@ -1,0 +1,106 @@
+<html><head>
+<title>script_calcolo_non_invertente_elementi_reattivi.py</title>
+<meta name="Generator" content="htmlizer/[Twisted, version 16.6.0]" />
+<link rel="alternate" href="script_calcolo_non_invertente_elementi_reattivi.py" type="text/x-python" />
+
+</head>
+<body>
+<pre><span class="py-src-keyword">import</span> <span class="py-src-variable">math</span>
+<span class="py-src-keyword">import</span> <span class="py-src-variable">matplotlib</span>.<span class="py-src-variable">pyplot</span> <span class="py-src-keyword">as</span> <span class="py-src-variable">plt</span>
+
+<span class="py-src-variable">debug</span> = <span class="py-src-variable">False</span>
+
+<span class="py-src-comment">#define gain value of the amplfier</span>
+<span class="py-src-variable">a</span> = <span class="py-src-number">9.33</span>
+<span class="py-src-comment">#define the absolute error of gain 10%</span>
+<span class="py-src-variable">da</span> = <span class="py-src-number">0.933</span>
+<span class="py-src-comment">#define the value of the resistor in series of the output port of the amplifier</span>
+<span class="py-src-variable">ru</span> = <span class="py-src-number">1000</span>
+<span class="py-src-comment">#define the absolute error of Ru 5%</span>
+<span class="py-src-variable">dru</span> = <span class="py-src-number">0.05</span>*<span class="py-src-variable">ru</span>
+<span class="py-src-comment">#define the value of C6</span>
+<span class="py-src-variable">csei</span> = <span class="py-src-number">10E-9</span>
+<span class="py-src-comment">#define the absolute error of C6 20%</span>
+<span class="py-src-variable">dcsei</span> = <span class="py-src-number">0.2</span>*<span class="py-src-variable">csei</span>
+<span class="py-src-comment">#define value of Cin (sum of the capacitors in input)</span>
+<span class="py-src-variable">cin</span> = <span class="py-src-number">13.3</span> * <span class="py-src-number">1E-9</span>
+<span class="py-src-comment">#define the error of Cin</span>
+<span class="py-src-variable">dcin</span> = <span class="py-src-number">0.2</span>*<span class="py-src-variable">cin</span>
+<span class="py-src-comment">#define Rin</span>
+<span class="py-src-variable">rin</span> = <span class="py-src-number">10E3</span>
+<span class="py-src-comment">#define the error of Rin 5%</span>
+<span class="py-src-variable">drin</span> = <span class="py-src-number">0.05</span>*<span class="py-src-variable">rin</span>
+<span class="py-src-comment">#define the error of the frequency</span>
+<span class="py-src-variable">df</span> = <span class="py-src-number">0</span>
+<span class="py-src-comment">#define k, a usefull costant</span>
+<span class="py-src-variable">k</span> = <span class="py-src-number">20</span>/<span class="py-src-variable">math</span>.<span class="py-src-variable">log</span>(<span class="py-src-number">10</span>)
+<span class="py-src-comment">#calc the frequency of the first pole</span>
+<span class="py-src-variable">fp</span> = <span class="py-src-number">1</span>/(<span class="py-src-number">2</span> * <span class="py-src-variable">math</span>.<span class="py-src-variable">pi</span> * <span class="py-src-variable">ru</span> * <span class="py-src-variable">csei</span>)
+<span class="py-src-comment">#calc the frequency of the second pole</span>
+<span class="py-src-variable">fp2</span> = <span class="py-src-number">1</span>/(<span class="py-src-number">2</span> * <span class="py-src-variable">math</span>.<span class="py-src-variable">pi</span> * <span class="py-src-variable">rin</span> * <span class="py-src-variable">cin</span>)
+<span class="py-src-comment">#calc the error of the first pole</span>
+<span class="py-src-variable">dfp</span> = <span class="py-src-number">2</span>*<span class="py-src-variable">math</span>.<span class="py-src-variable">pi</span>*<span class="py-src-variable">math</span>.<span class="py-src-variable">pow</span>(<span class="py-src-variable">fp</span>,<span class="py-src-number">2</span>)*((<span class="py-src-variable">ru</span> * <span class="py-src-variable">dcsei</span>)+(<span class="py-src-variable">dru</span> * <span class="py-src-variable">csei</span>))
+<span class="py-src-keyword">if</span> <span class="py-src-variable">debug</span>: <span class="py-src-keyword">print</span> (<span class="py-src-string">"fp %f"</span>) % <span class="py-src-variable">fp</span>
+<span class="py-src-keyword">if</span> <span class="py-src-variable">debug</span>: <span class="py-src-keyword">print</span> (<span class="py-src-string">"dfp %f"</span>) % <span class="py-src-variable">dfp</span>
+<span class="py-src-comment">#calc the error of the second pole</span>
+<span class="py-src-variable">dfp2</span> = <span class="py-src-number">2</span>*<span class="py-src-variable">math</span>.<span class="py-src-variable">pi</span>*<span class="py-src-variable">math</span>.<span class="py-src-variable">pow</span>(<span class="py-src-variable">fp2</span>,<span class="py-src-number">2</span>)*((<span class="py-src-variable">rin</span> * <span class="py-src-variable">dcin</span>)+(<span class="py-src-variable">cin</span> * <span class="py-src-variable">drin</span>))
+<span class="py-src-keyword">if</span> <span class="py-src-variable">debug</span>: <span class="py-src-keyword">print</span> (<span class="py-src-string">"fp2 %f"</span>) % <span class="py-src-variable">fp2</span>
+<span class="py-src-keyword">if</span> <span class="py-src-variable">debug</span>: <span class="py-src-keyword">print</span> (<span class="py-src-string">"dfp2 %f"</span>) % <span class="py-src-variable">dfp2</span>
+<span class="py-src-comment">#calc the costant gain value in dB</span>
+<span class="py-src-variable">avdb</span> = <span class="py-src-number">20</span>*<span class="py-src-variable">math</span>.<span class="py-src-variable">log</span>(<span class="py-src-variable">a</span> * <span class="py-src-variable">cin</span> * <span class="py-src-variable">rin</span>,<span class="py-src-number">10</span>)
+<span class="py-src-comment">#calc the error costant gain value in dB</span>
+<span class="py-src-variable">davdb</span> = <span class="py-src-variable">k</span>*((<span class="py-src-variable">da</span>/<span class="py-src-variable">a</span>)+(<span class="py-src-variable">drin</span>/<span class="py-src-variable">rin</span>)+(<span class="py-src-variable">dcin</span>/<span class="py-src-variable">cin</span>))
+<span class="py-src-keyword">if</span> <span class="py-src-variable">debug</span>: <span class="py-src-keyword">print</span> (<span class="py-src-string">"av dB %f"</span>) % <span class="py-src-variable">avdb</span>
+<span class="py-src-keyword">if</span> <span class="py-src-variable">debug</span>: <span class="py-src-keyword">print</span> (<span class="py-src-string">"dav dB %f"</span>) % <span class="py-src-variable">davdb</span>
+
+<span class="py-src-comment">#define the frequency where we'll calc the gain and the error</span>
+<span class="py-src-variable">f</span> = [<span class="py-src-number">300</span>,<span class="py-src-number">1000</span>,<span class="py-src-number">3000</span>,<span class="py-src-number">10000</span>,<span class="py-src-number">30000</span>,<span class="py-src-number">100000</span>,<span class="py-src-number">300000</span>,<span class="py-src-number">1000000</span>]
+
+<span class="py-src-variable">x</span>=[]
+<span class="py-src-variable">dx</span>=[]
+<span class="py-src-variable">mis</span>=[<span class="py-src-number">7.1</span>,<span class="py-src-number">15.52</span>,<span class="py-src-number">18.6</span>,<span class="py-src-number">17.9</span>,<span class="py-src-number">12.8</span>,<span class="py-src-number">3.32</span>,<span class="py-src-number">6.12</span>,<span class="py-src-number">16.57</span>]
+<span class="py-src-variable">dmis</span>=[<span class="py-src-number">3.2</span>,<span class="py-src-number">3.9</span>,<span class="py-src-number">5.0</span>,<span class="py-src-number">5.8</span>,<span class="py-src-number">6.9</span>,<span class="py-src-number">7.3</span>,<span class="py-src-number">7.38</span>,<span class="py-src-number">7.38</span>]
+
+<span class="py-src-comment">#for each frequency defined above</span>
+<span class="py-src-keyword">for</span> <span class="py-src-variable">i</span> <span class="py-src-keyword">in</span> <span class="py-src-variable">f</span>:
+ <span class="py-src-comment">#calc the modulo of the first pole at a specific frequency</span>
+	<span class="py-src-variable">mfp</span> = <span class="py-src-variable">math</span>.<span class="py-src-variable">sqrt</span>(<span class="py-src-number">1</span>+<span class="py-src-variable">math</span>.<span class="py-src-variable">pow</span>(<span class="py-src-variable">i</span>/<span class="py-src-variable">fp</span>,<span class="py-src-number">2</span>))
+ <span class="py-src-keyword">if</span> <span class="py-src-variable">debug</span>: <span class="py-src-keyword">print</span>(<span class="py-src-string">"mfp %f"</span>) % <span class="py-src-variable">mfp</span>
+ <span class="py-src-comment">#calc the modulo of the second pole at a specific frequency</span>
+ <span class="py-src-variable">mfp2</span> = <span class="py-src-variable">math</span>.<span class="py-src-variable">sqrt</span>(<span class="py-src-number">1</span>+<span class="py-src-variable">math</span>.<span class="py-src-variable">pow</span>(<span class="py-src-variable">i</span>/<span class="py-src-variable">fp2</span>,<span class="py-src-number">2</span>))
+ <span class="py-src-keyword">if</span> <span class="py-src-variable">debug</span>: <span class="py-src-keyword">print</span>(<span class="py-src-string">"mfp2 %f"</span>) % <span class="py-src-variable">mfp2</span>
+ <span class="py-src-comment">#calc the gain of the amplifier at a specific frequency</span>
+ <span class="py-src-variable">av</span> = <span class="py-src-variable">avdb</span> + (<span class="py-src-number">20</span>*<span class="py-src-variable">math</span>.<span class="py-src-variable">log</span>(<span class="py-src-number">2</span>*<span class="py-src-variable">math</span>.<span class="py-src-variable">pi</span>*<span class="py-src-variable">i</span>,<span class="py-src-number">10</span>)) - (<span class="py-src-number">20</span>*<span class="py-src-variable">math</span>.<span class="py-src-variable">log</span>(<span class="py-src-variable">mfp</span>,<span class="py-src-number">10</span>)) - (<span class="py-src-number">20</span>*<span class="py-src-variable">math</span>.<span class="py-src-variable">log</span>(<span class="py-src-variable">mfp2</span>,<span class="py-src-number">10</span>))
+ <span class="py-src-comment">#calc a usefull costant for the first pole</span>
+ <span class="py-src-variable">kp</span> = (<span class="py-src-variable">k</span>*<span class="py-src-variable">i</span>)/(<span class="py-src-variable">math</span>.<span class="py-src-variable">pow</span>(<span class="py-src-variable">fp</span>,<span class="py-src-number">2</span>)*<span class="py-src-variable">mfp</span>)
+ <span class="py-src-keyword">if</span> <span class="py-src-variable">debug</span>: <span class="py-src-keyword">print</span> (<span class="py-src-string">"kp %f"</span>) % <span class="py-src-variable">kp</span>
+ <span class="py-src-comment">#calc a usefull costant for the second pole</span>
+ <span class="py-src-variable">kp2</span> = (<span class="py-src-variable">k</span>*<span class="py-src-variable">i</span>)/(<span class="py-src-variable">math</span>.<span class="py-src-variable">pow</span>(<span class="py-src-variable">fp2</span>,<span class="py-src-number">2</span>)*<span class="py-src-variable">mfp2</span>)
+ <span class="py-src-keyword">if</span> <span class="py-src-variable">debug</span>: <span class="py-src-keyword">print</span> (<span class="py-src-string">"kp2 %f"</span>) % <span class="py-src-variable">kp2</span>
+ <span class="py-src-comment">#calc the absolute error of the gain given by the frequence uncertainty</span>
+ <span class="py-src-variable">ddf</span> = (<span class="py-src-variable">k</span>/<span class="py-src-variable">i</span>) * <span class="py-src-variable">df</span>
+ <span class="py-src-keyword">if</span> <span class="py-src-variable">debug</span>: <span class="py-src-keyword">print</span> (<span class="py-src-string">"ddf %f"</span>) % <span class="py-src-variable">ddf</span>
+ <span class="py-src-comment">#calc the absolute error of the gain given by the first pole uncertainty</span>
+ <span class="py-src-variable">ddfp</span> = (<span class="py-src-variable">kp</span>/<span class="py-src-variable">mfp</span>)*(<span class="py-src-variable">df</span> + ((<span class="py-src-variable">i</span>/<span class="py-src-variable">fp</span>)*<span class="py-src-variable">dfp</span>))
+ <span class="py-src-keyword">if</span> <span class="py-src-variable">debug</span>: <span class="py-src-keyword">print</span> (<span class="py-src-string">"ddfp %f"</span>) % <span class="py-src-variable">ddfp</span>
+ <span class="py-src-comment">#calc the absolute error of the gain given by the second pole uncertainty</span>
+ <span class="py-src-variable">ddfp2</span> = (<span class="py-src-variable">kp2</span>/<span class="py-src-variable">mfp2</span>)*(<span class="py-src-variable">df</span> + ((<span class="py-src-variable">i</span>/<span class="py-src-variable">fp2</span>)*<span class="py-src-variable">dfp2</span>))
+ <span class="py-src-keyword">if</span> <span class="py-src-variable">debug</span>: <span class="py-src-keyword">print</span> (<span class="py-src-string">"ddfp2 %f"</span>) % <span class="py-src-variable">ddfp2</span>
+ <span class="py-src-comment">#calc the absolute error of the gain (summing the error calculated before)</span>
+ <span class="py-src-variable">dav</span> = <span class="py-src-variable">davdb</span> + <span class="py-src-variable">ddf</span> + <span class="py-src-variable">ddfp</span> + <span class="py-src-variable">ddfp2</span>
+ <span class="py-src-comment">#calc of the phase</span>
+ <span class="py-src-variable">pi</span> = <span class="py-src-variable">math</span>.<span class="py-src-variable">atan</span>( (<span class="py-src-number">1</span> - (<span class="py-src-variable">math</span>.<span class="py-src-variable">pow</span>(<span class="py-src-variable">i</span>,<span class="py-src-number">2</span>)/(<span class="py-src-variable">fp</span>*<span class="py-src-variable">fp2</span>))) / (<span class="py-src-variable">i</span>*(<span class="py-src-variable">fp2</span> + <span class="py-src-variable">fp</span>)/(<span class="py-src-variable">fp2</span>*<span class="py-src-variable">fp</span>)))
+        <span class="py-src-variable">x</span>.<span class="py-src-variable">append</span>(<span class="py-src-variable">round</span>(<span class="py-src-variable">av</span>,<span class="py-src-number">2</span>))
+        <span class="py-src-variable">dx</span>.<span class="py-src-variable">append</span>(<span class="py-src-variable">round</span>(<span class="py-src-variable">dav</span>,<span class="py-src-number">2</span>))
+ <span class="py-src-keyword">print</span>(<span class="py-src-string">"@%dHz\tAv = (%.2f +- %.2f)dB\tPhase = (%.2f +- %.2f)rad"</span>) % (<span class="py-src-variable">i</span>, <span class="py-src-variable">round</span>(<span class="py-src-variable">av</span>,<span class="py-src-number">2</span>), <span class="py-src-variable">round</span>(<span class="py-src-variable">dav</span>,<span class="py-src-number">2</span>),<span class="py-src-variable">round</span>(<span class="py-src-variable">pi</span>,<span class="py-src-number">2</span>),<span class="py-src-variable">round</span>(<span class="py-src-number">0.00</span>,<span class="py-src-number">2</span>))
+
+<span class="py-src-variable">fig</span>, (<span class="py-src-variable">ax1</span>, <span class="py-src-variable">ax2</span>) = <span class="py-src-variable">plt</span>.<span class="py-src-variable">subplots</span>(<span class="py-src-number">2</span>,<span class="py-src-variable">sharex</span>=<span class="py-src-variable">True</span>)
+<span class="py-src-variable">ax1</span>.<span class="py-src-variable">errorbar</span>(<span class="py-src-variable">f</span>,<span class="py-src-variable">mis</span>,<span class="py-src-variable">yerr</span>=<span class="py-src-variable">dmis</span>,<span class="py-src-variable">color</span>=<span class="py-src-string">"r"</span>);
+<span class="py-src-variable">ax1</span>.<span class="py-src-variable">set_title</span>(<span class="py-src-string">'Misurato'</span>)
+<span class="py-src-variable">ax1</span>.<span class="py-src-variable">yscale</span>(<span class="py-src-string">'log'</span>)
+<span class="py-src-variable">ax2</span>.<span class="py-src-variable">errorbar</span>(<span class="py-src-variable">f</span>,<span class="py-src-variable">x</span>,<span class="py-src-variable">yerr</span>=<span class="py-src-variable">dx</span>,<span class="py-src-variable">color</span>=<span class="py-src-string">"b"</span>);
+<span class="py-src-variable">ax2</span>.<span class="py-src-variable">set_title</span>(<span class="py-src-string">'Teorico'</span>)
+<span class="py-src-variable">ax2</span>.<span class="py-src-variable">yscale</span>(<span class="py-src-string">'log'</span>)
+<span class="py-src-variable">plt</span>.<span class="py-src-variable">show</span>()
+</pre>
+</body>
