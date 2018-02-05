@@ -6,18 +6,19 @@
 \author{Alessandro Rosso, Elia Migliore, Franco Ruggeri}
 \title{Relazione Seconda Esercitazione Sistemi Elettronici}
 \date{15 December 2017}
-
 \begin{document}
 
+\maketitle
+
 \section{Introduzione}
-In questa esercitazione sperimentale di sistemi elettronici abbiamo misurato il comportamento di due amplificatori reali, uno non invertente e uno invertente.\\Abbiamo quindi poi confrontare i risultati ottenuti dalle misure con quelli ottenuti dai calcoli teorici, osservando i limiti che le semplificazioni teoriche inducono.
+In questa esercitazione sperimentale di sistemi elettronici abbiamo misurato il comportamento di due amplificatori reali, uno non invertente e uno invertente.\\Abbiamo quindi poi confrontato i risultati ottenuti dalle misure con quelli ottenuti dai calcoli teorici, osservando i limiti che le semplificazioni teoriche inducono.
 
 \section{Strumenti}
 Per effettuare questa esercitazione abbiamo dovuto utilizzare quindi:
 \begin{itemize}
 	\item \textbf{Generatore da banco}
-	\item \textbf{Generatore di segnali}
-    \item \textbf{Oscilloscopio digitale}
+	\item \textbf{Generatore di segnali - HM8131$_{-2}$}
+    \item \textbf{Oscilloscopio digitale - HP 54600B}
 	\item \textbf{Scheda con amplificatori "A2"}
 \end{itemize}
 
@@ -41,7 +42,7 @@ Per la prima parte dell'esercitazione siamo andati ad analizzare l'amplificatore
 
 \subsection{Calcoli teorici}
 Per questa prima parte dell'esercitazione non era richiesto il calcolo dei valori teorici in quanto già forniti nei dati dell'esercitazione.
-Sono quindi quà riportati:
+Sono quindi qua riportati:
 \begin{itemize}
 \item \large $R_{in} = (10.00 \pm 0.50)k\Omega$
 \item \large $R_{out} = (1.00 \pm 0.05)k\Omega$
@@ -78,14 +79,14 @@ Ottemiamo quindi un \textbf{guadagno} pari a:\\ \large $A_v = \frac{V_s}{V_u} = 
 
 \subsection{Misura della resistenza di ingresso}
 \subsubsection{Metodo di misura per le resistenze}
-Per poter effettuare le misure di resistenza si è scelto di sfruttare l'inserimento di una \textbf{resistenza in serie} al circuito di ingresso, R9 ("inseribile" tramite l'interruttore S5 ???).\\Calcolando quindi la tensione di uscita senza resistenza R9 in serie si ottiene:\\
-\large $V_{u} = A_{v} * V_{in}$ \normalsize \\ Invece se si inserisce R9 in serie commutando la posizione di S5???? si ottiene:\\
+Per poter effettuare le misure di resistenza si è scelto di sfruttare l'inserimento di una \textbf{resistenza in serie} al circuito di ingresso, R9 ("inseribile" tramite l'interruttore S5).\\Calcolando quindi la tensione di uscita senza resistenza R9 in serie si ottiene:\\
+\large $V_{u} = A_{v} * V_{in}$ \normalsize \\ Invece se si inserisce R9 in serie commutando la posizione di S5 si ottiene:\\
 \large $ V_{u}^{'} = A_{v} * V_{in} * \frac{R_{in}}{R_{in} + R_9} $ \normalsize \\ Facendo il rapporto \large $\frac{V_{u}^{'}}{{V_u}}$ \normalsize si ottiene quindi: \\ \large $R_{in} = \frac{R_9 * V_{u}^{'}}{V_u - V_{u}^{'}} $
 
 \subsubsection{Calcolo resistenza ingresso}
 I valori numerici misurati sono i seguenti:
 \begin{itemize}
-	\item \large $R_{9} = 10k\Omega \pm 1\%$
+	\item \large $R_{9} = (10.0 \pm 0.1)k\Omega$
 	\item \large $V_{u} = (8.40 \pm 0.36)V$
 	\item \large $V_{u}^{'} = (4.40 \pm 0.18)V$
 \end{itemize}
@@ -93,8 +94,8 @@ Inserendoli nella formula precedente otteniamo quindi un valore di: \\ \large $R
 
 \subsection{Misura della resistenza di uscita}
 \subsubsection{Metodo di misura per le resistenze}
-\normalsize Per poter effettuare le misure di resistenza si è scelto di sfruttare l'inserimento di una \textbf{resistenza in serie} al circuito di uscita, R10 ("inseribile" tramite l'interruttore S6 ???).\\Calcolando quindi la tensione di uscita senza resistenza R10 in serie si ottiene:\\
-\large $V_{u} = A_{v} * V_{in}$ \normalsize \\ Invece se si inserisce R10 in serie commutando la posizione di S6???? si ottiene:\\
+\normalsize Per poter effettuare le misure di resistenza si è scelto di sfruttare l'inserimento di una \textbf{resistenza in serie} al circuito di uscita, R10 ("inseribile" tramite l'interruttore S6).\\Calcolando quindi la tensione di uscita senza resistenza R10 in serie si ottiene:\\
+\large $V_{u} = A_{v} * V_{in}$ \normalsize \\ Invece se si inserisce R10 in serie commutando la posizione di S6 si ottiene:\\
 \large $ V_{u}^{'} = A_{v} * V_{in} * \frac{R_{10}}{R_{10} + R_u} $ \normalsize \\ Facendo il rapporto \large $\frac{V_{u}^{'}}{{V_u}}$ \normalsize si ottiene quindi: \\ \large $R_{in} = R_{10} * (\frac{V_{u}-V_{u}^{'}}{V_{u}^{'}}) $ \normalsize
 \subsubsection{Calcolo resistenza uscita}
 I valori numerici misurati sono i seguenti:
@@ -106,7 +107,7 @@ I valori numerici misurati sono i seguenti:
 Inserendoli nella formula precedente otteniamo quindi un valore di: \\ \large $R_{u} = (1.0 \pm 0.23)k\Omega$
 
 \subsection{Confronto valori teorici e valori ottenuti dalle misure}
-I valori misurati sono tutti compatibili con i valori teorici.
+\normalsize I valori misurati sono tutti compatibili con i valori teorici.
 
 \section{Amplificatore non invertente con elementi reattivi}
 \subsection{Calcoli teorici}
@@ -226,8 +227,7 @@ plt.show()
 \subsubsection{Tabella delle misure}
 % tabella aggiunta da elia
 Tabella:
-\\
-\begin{table}[]
+\begin{table}[!h]
 \centering
 \label{my-label}
 \renewcommand{\arraystretch}{1.5}
@@ -246,7 +246,11 @@ Tabella:
 \end{tabular}
 \\
 \end{table}
-\begin{figure}
+\\
+
+\subsubsection{Diagrammi Bode}
+Diagrammi Bode:
+\begin{figure}[!h]
   \includegraphics[width=\textwidth]{Bode.png}
   \caption{In rosso i valori misurati; In blu quelli teorici; Sopra il modulo, sotto la fase}
   \label{fig:bode1}
@@ -266,7 +270,7 @@ Per effettuare la misura di guadagno è richiesto di impostare il generatore di 
 
 \subsubsection{Segnale misurato}
 Passiamo ora all'analisi dei valori misurati attraverso l'oscilloscopio.\\Dall'analisi dell'uscita visualizzata sul display dell'oscilloscopio possiamo calcolare una \textbf{tensione di ingresso} pari a \large $V_s = (980 \pm 39)$mV \normalsize (in quanto possiamo leggere il risultato come 4.9 divisioni con una scala di 200mV a divisione).\\
-Per quanto riguarda la \textbf{tensione di uscita} invece leggiamo un valore di \large $V_u = (10.0 \pm 0.39)$V \normalsize (ottenuto da 5 divisione con una scala di 2.00V per divisione).
+Per quanto riguarda la \textbf{tensione di uscita} invece leggiamo un valore di \large $V_u = (10.00 \pm 0.39)$V \normalsize (ottenuto da 5 divisione con una scala di 2.00V per divisione).
 \subsubsection{Calcolo guadagno}
 Ottemiamo quindi un \textbf{guadagno} pari a:\\ \large $A_v = \frac{V_s}{V_u} = (10.20 \pm 0.80)$ \normalsize \\Che, espresso \textbf{in decibel} diventa:\\ \large $ |A_v|_{dB} = (20.2 \pm 1.6)$dB \normalsize
 \subsection{Misura resistenza di ingresso}
@@ -274,8 +278,8 @@ Per la misura della resistenza di ingresso procediamo come per l'amplificatore n
 \subsubsection{Misure ottenute}
 I valori numerici misurati sono i seguenti:
 \begin{itemize}
-	\item \large $R_{9} = 10k\Omega \pm 1\%$
-	\item \large $V_{u} = (10.0 \pm 0.39)V$
+	\item \large $R_{9} = (10.0 \pm 0.1)k\Omega$
+	\item \large $V_{u} = (10.00 \pm 0.39)V$
 	\item \large $V_{u}^{'} = (6.00 \pm 0.31)V$
 \end{itemize}
 Inserendoli nella formula precedente otteniamo quindi un valore di: \\ \large $R_{in} = (15.0 \pm 3.5)k\Omega$
@@ -286,19 +290,20 @@ Anche per la misura della resistenza di uscita procediamo come per l'amplificato
 \subsubsection{Misure ottenute}
 I valori numerici misurati sono i seguenti:
 \begin{itemize}
-	\item \large $R_{10} = 1k\Omega \pm 5\%$
-	\item \large $V_{u} = (10.0 \pm 0.39)V$
-	\item \large $V_{u}^{'} = (10.0 \pm 0.39)V$
+	\item \large $R_{10} = (1.00 \pm 0.05)k\Omega$
+	\item \large $V_{u} = (10.00 \pm 0.39)V$
+	\item \large $V_{u}^{'} = (10.00 \pm 0.39)V$
 \end{itemize}
 \subsubsection{Note}
 Si denota vedendo le misure che l'inserimento della resistenza $R_{10}$ è completamente ininfluente per quanto riguarda la tensione di uscita.\\Questo implica che il valore di $R_{10}$ sia completamente 
 trascurabile rispetto a $R_{u}$.
 \subsection{Verifica inversione di fase}
 Come si denota dall'immagine, la fase del segnale di uscita è ritardata di 180 gradi rispetto a quella del segnale di ingresso
-\begin{figure}
+\begin{figure}[!h]
   \includegraphics[width=\textwidth]{fase.jpg}
   \caption{Inversione di fase}
   \label{fig:invfase1}
 \end{figure}
+\section{Strumenti utilizzati}
 
 \end{document}
